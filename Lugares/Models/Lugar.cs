@@ -6,7 +6,33 @@ using System.Threading.Tasks;
 
 namespace Lugares.Models
 {
-    class Lugar
+    public class Lugar
     {
+        private string nombre;
+
+        public string Nombre
+        {
+            get { return nombre; }
+            set { nombre = value; }
+        }
+
+        private string descripcion;
+
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        }
+
+        private string img;
+
+        public string Img
+        {
+            get { return img; }
+            set { img = value; }
+        }
+
+
+
     }
 }

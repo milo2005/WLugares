@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lugares.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,5 +27,19 @@ namespace Lugares
         {
             this.InitializeComponent();
         }
+
+        private Lugar lugar;
+
+        public Lugar Lugar
+        {
+            get {
+                if (lugar == null)
+                    lugar = new Lugar() { Nombre="Popayan",Descripcion="La Ciudad Blanca"
+                        ,Img="http://xpert.co/wp-content/uploads/2008/07/popayan-703186.jpg"};
+                return lugar; }
+            set { lugar = value; }
+        }
+
+
     }
 }

@@ -9,5 +9,20 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <StackPanel>
+            <Rectangle 
+                HorizontalAlignment="Stretch"
+                Height="300"
+                >
+                <Rectangle.Fill>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="{x:Bind Lugar.Img}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <TextBlock Text="{x:Bind Lugar.Nombre}" 
+                       Style="{StaticResource HeaderTextBlockStyle}"/>
+            <TextBlock Text="{x:Bind Lugar.Descripcion}"
+                       Style="{StaticResource SubheaderTextBlockStyle}"/>
+        </StackPanel>
+        
     </Grid>
 </Page>
