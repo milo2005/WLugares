@@ -5,18 +5,38 @@
     xmlns:local="using:Lugares"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Lugares.Models"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ListBox x:Name="list"/>
-        
+        <ListBox x:Name="list"
+                 ItemsSource="{x:Bind Lugares}"
+                 >
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="models:Lugar">
+                    <StackPanel>
+                        <Image Height="90"
+                               Width="340"
+                               Stretch="UniformToFill"
+                               Source="{x:Bind Img}"/>
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                                   Text="{x:Bind Nombre}"/>
+                        <TextBlock Style="{StaticResource TitleTextBlockStyle}"
+                                   Text="{x:Bind Descripcion}"/>
+                               
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+        </ListBox>
+
     </Grid>
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.PrimaryCommands>
-                <AppBarButton x:Name="delete" Label="Eliminar" Icon="Delete"/>
-                <AppBarButton x:Name="edit" Label="Editar" Icon="Edit"/>
+                <AppBarButton x:Name="delete" Label="Eliminar" Icon="Delete" Click="deleteItem"/>
+                <AppBarButton x:Name="edit" Label="Editar" Icon="Edit" Click="editItem"/>
             </CommandBar.PrimaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
