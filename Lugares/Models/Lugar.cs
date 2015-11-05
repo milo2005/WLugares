@@ -1,19 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Lugares.Models
 {
-    public class Lugar
+    public class Lugar:INotifyPropertyChanged
     {
         private string nombre;
 
         public string Nombre
         {
             get { return nombre; }
-            set { nombre = value; }
+            set {
+
+                nombre = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("Nombre"));
+            }
         }
 
         private string descripcion;
@@ -21,7 +27,10 @@ namespace Lugares.Models
         public string Descripcion
         {
             get { return descripcion; }
-            set { descripcion = value; }
+            set { descripcion = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("Descripcion"));
+            }
         }
 
         private string img;
@@ -31,6 +40,8 @@ namespace Lugares.Models
             get { return img; }
             set { img = value; }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
 

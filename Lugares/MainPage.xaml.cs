@@ -40,6 +40,9 @@ namespace Lugares
             set { lugar = value; }
         }
 
-
+        private void cambiarNombre(object sender, RoutedEventArgs e)
+        {
+            lugar.Nombre = "Parque Caldas";
+        }
     }
 }

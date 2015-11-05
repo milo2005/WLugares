@@ -18,10 +18,22 @@
                     <ImageBrush Stretch="UniformToFill" ImageSource="{x:Bind Lugar.Img}"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <TextBlock Text="{x:Bind Lugar.Nombre}" 
-                       Style="{StaticResource HeaderTextBlockStyle}"/>
-            <TextBlock Text="{x:Bind Lugar.Descripcion}"
-                       Style="{StaticResource SubheaderTextBlockStyle}"/>
+            <TextBlock Text="{x:Bind Lugar.Nombre, Mode=TwoWay}" 
+                       Style="{StaticResource HeaderTextBlockStyle}"
+                       Margin="10,0,10,10"
+                       />
+            <TextBlock Text="{x:Bind Lugar.Descripcion, Mode=TwoWay}"
+                       Style="{StaticResource SubheaderTextBlockStyle}"
+                       Margin="10,0,10,20"
+                       />
+            <TextBox x:Name="des" Text="{x:Bind Lugar.Descripcion, Mode=TwoWay}"
+                     Margin="10,0,10,10"
+                     />
+            <Button Content="Actualizar Nombre" HorizontalAlignment="Stretch"
+                    Margin="10,0,10,10" Click="cambiarNombre"
+                    />
+            
+            
         </StackPanel>
         
     </Grid>
