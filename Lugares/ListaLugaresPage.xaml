@@ -10,8 +10,21 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ListBox x:Name="list"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel DataContext="{Binding SelectedItem,ElementName=list}">
+            <TextBlock Text="{Binding Nombre}" 
+                   Style="{StaticResource SubheaderTextBlockStyle}"/>
+        </StackPanel>
+
+        <ListBox 
+            Grid.Row="1"
+                    x:Name="list"
                  ItemsSource="{x:Bind Lugares}"
+            
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="models:Lugar">
@@ -42,3 +55,5 @@
     </Page.BottomAppBar>
     
 </Page>
+
+    
